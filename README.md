@@ -1,15 +1,18 @@
 # 멘토K 프롬프트랩
 
-실전 업무·기획·콘텐츠 제작을 위한 한국어 병행 프롬프트 라이브러리입니다.
+실전 업무·기획·콘텐츠 제작을 위한 한국어 병행 프롬프트 라이브러리의 원본 저장소입니다.
 
-- 공개 사이트: https://aiwith.kr/
-- 관리자: https://aiwith.kr/admin.html
-- 저장소: https://github.com/mentor-k/promptlab
+- 공개 서비스: https://aiwith.kr/prompt/
+- 관리자: https://aiwith.kr/prompt/admin.html
+- 서비스 저장소: https://github.com/mentor-k/chatgpt-sites-projectbook
+- 원본 저장소: https://github.com/mentor-k/promptlab
 
-## GitHub Pages 배포
+## 배포 구조
 
-저장소 Settings → Pages에서 Deploy from a branch / main / /(root)을 선택하고 Custom domain에 aiwith.kr을 입력합니다. 루트의 CNAME, robots.txt, sitemap.xml은 이미 포함되어 있습니다.
+기존 AI 홈페이지의 루트 도메인을 보존하기 위해 공개 서비스는 기존 저장소의 `prompt/` 폴더에서 제공합니다. 이 저장소에는 Prompt Lab 원본과 서버 인증 API 설계가 보관됩니다.
 
-## 운영 메모
+GitHub Pages 사용자 지정 도메인 `aiwith.kr`은 기존 홈페이지 저장소에만 연결해야 합니다. 이 저장소에는 CNAME을 두지 않습니다.
 
-관리자 대시보드는 브라우저 로컬 저장소 기반 PIN 인증과 GitHub 공개 커밋 조회로 동작합니다. 실제 접속 통계는 공개 정적 사이트의 한계상 브라우저 이벤트 집계 방식이며, 개인정보를 수집하지 않도록 설계했습니다. AdSense는 승인 후 발급된 실제 publisher ID를 기준으로 연결합니다.
+## 관리자 보안
+
+관리자 PIN은 소스에 저장하지 않습니다. `/prompt/admin.js`는 서버 API의 HttpOnly 세션 쿠키를 사용하고, 엑셀은 인증 API에서만 스트리밍합니다. API 구현과 배포 조건은 `server/README.md`를 참고하세요.
